@@ -1,0 +1,21 @@
+{
+  "name": "covid-tracker-app",
+  "version": "1.0.0",
+  "description": "Tool for tracking COVID-19 patients",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "author": "Mohamed Ayman",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.6.7"
+  }
+}
