@@ -3,6 +3,14 @@ const asyncHandler = require("express-async-handler");
 const Log = require("../models/logModel");
 const User = require("../models/userModel");
 
+// @desc Get All logs
+// @route GET /api/logs/getAll
+// @access Private
+const getAllLogs = asyncHandler(async (req, res) => {
+  const logs = await Log.find();
+  res.status(200).json(logs);
+});
+
 // @desc Get logs for logged in user
 // @route GET /api/logs
 // @access Private
@@ -15,7 +23,8 @@ const getLogs = asyncHandler(async (req, res) => {
 // @route POST /api/logs
 // @access Private
 const createLog = asyncHandler(async (req, res) => {
-  const { age, temperature, location, symptoms } = req.body;
+  const { age, temperature, location, latitude, longitude, symptoms } =
+    req.body;
 
   if (!age || !temperature || !location) {
     res.status(400);
@@ -26,6 +35,8 @@ const createLog = asyncHandler(async (req, res) => {
     age,
     temperature,
     location,
+    latitude,
+    longitude,
     symptoms,
     user: req.user.id,
   });
@@ -94,4 +105,5 @@ module.exports = {
   createLog,
   updateLog,
   deleteLog,
+  getAllLogs,
 };

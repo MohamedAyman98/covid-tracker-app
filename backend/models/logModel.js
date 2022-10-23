@@ -14,6 +14,12 @@ const logSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    latitude: {
+      type: Number,
+    },
+    longitude: {
+      type: Number,
+    },
     symptoms: {
       type: String,
     },
