@@ -126,7 +126,7 @@ export const logSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.logs = state.logs.filter((log) => log._id !== action.payload.id);
-        state.allLogs = state.logs.filter(
+        state.allLogs = state.allLogs.filter(
           (log) => log._id !== action.payload.id
         );
       })
